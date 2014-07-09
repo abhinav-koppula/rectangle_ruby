@@ -2,12 +2,12 @@
 class Rectangle
   attr_reader :length, :breadth
   def initialize(length, breadth)
-    @length = length.convert_to_mm
-    @breadth = breadth.convert_to_mm
+    @length = length
+    @breadth = breadth
   end
 
   def perimeter
-    Length.new(2 * (@length + @breadth), :mm)
+    Length.new(2 * (@length.convert_to_mm + @breadth.convert_to_mm), Unit.new(Unit::MM))
   end
 
   def ==(side)
